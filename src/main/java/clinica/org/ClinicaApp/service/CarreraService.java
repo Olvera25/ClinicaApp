@@ -1,5 +1,8 @@
 package clinica.org.ClinicaApp.service;
 
+import java.util.Optional;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,23 +14,23 @@ public class CarreraService {
 	@Autowired
 	CarreraRepository repo;
 	
-	public void crearactualizarCarrera(Carrera carrera) {
-		repo.save(carrera);
+	public Carrera crearCarrera(Carrera carrera) {
+		return repo.save(carrera);
 		
 	}
 	
 	public void eliminarCarrera(Carrera carrera) {
-		repo.save(carrera);
+		repo.delete(carrera);
 		
 	}
 	
-	public void listarCarrera() {
-		repo.findAll();
+	public List<Carrera> listarCarrera() {
+		return repo.findAll();
 		
 	}
 	
-	public void mostrarCarrera(Long id) {
-		repo.findById(id);
+	public Optional<Carrera> mostrarCarrera(Long id) {
+		return repo.findById(id);
 		
 	}
 }
