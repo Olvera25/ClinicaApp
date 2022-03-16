@@ -1,6 +1,9 @@
 -- -------------------------------------------------------------------------------
 -- CREACION DE LAS TABLAS SEMESTRE, CARRERA, PRACTICA, ALUMNO, USUARIO, REGISTRO
 -- -------------------------------------------------------------------------------
+create database clinica;
+-- \d clinica
+
 create table Semestre(
     codigo text not null,
     nombre text not null,
