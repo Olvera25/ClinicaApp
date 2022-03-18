@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../../webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+<link href="../../webjars/font-awesome/5.0.10/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet" />
+<script src="../../webjars/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="../../webjars/jquery/3.0.0/jquery.min.js"></script>
+<title>Spring Boot - Thymeleaf</title>
+
+</head>
+<body>
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h1>Lista de Usuarios</h1>
+		</div>
+		
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Codigo</th>
+					<th>Nombre</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-th-each="usuario : ${listarUsuario}">
+					<td data-th-text="${usuario.id_carrera}"></td>
+					<td data-th-text="${usuario.nombre}"></td>
+					<td data-th-text="${usuario.contrasenia}"></td>
+					<td>
+						<a th:href="@{'/pages/editarUsuario/{id}'(id=${usuario.id_carrera})}">
+							<span class="fa-stack">
+								<i class="fa fa-edit"></i>
+							</span>
+						</a>
+					</td>
+					
+					<td>
+						<a th:href="@{'/pages/eliminarUsuario/{id}'(id=${usuario.id})}">
+							<span class="fa-stack">
+								<i class="fa fa-trash"></i>
+							</span>
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<br/>
+	<a class="btn btn-info" href="/pages/agregarUsuario"><i class="fa fa-home"></i>&nbspNuevo Usuario</a>
+</body>
+</html>

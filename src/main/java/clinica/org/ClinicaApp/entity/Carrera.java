@@ -11,9 +11,9 @@ import javax.persistence.Table;
 public class Carrera {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long codigo;
+	Long codigo;
 	
-	private String nombre;
+	String nombre;
 	
 	public Carrera() {
 		
