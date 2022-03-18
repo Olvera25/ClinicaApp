@@ -7,37 +7,40 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name="carrera")
-public class Carrera {
+@Table (name="rol")
+public class Rol {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	Long codigo;
 	
+	Long idrol;
 	String nombre;
 	
-	public Carrera() {
-		
+	
+	public Rol() {
+		super();
 	}
 	
-	public Carrera(Long codigo, String nombre) {
-		this.codigo=codigo;
-		this.nombre=nombre;
+	public Rol(Long idrol, String nombre) {
+		super();
+		this.idrol = idrol;
+		this.nombre = nombre;
 	}
-
-	public Long getCodigo() {
-		return codigo;
+	
+	public Long getIdrol() {
+		return idrol;
 	}
-
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
+	
+	public void setIdrol(Long idrol) {
+		this.idrol = idrol;
 	}
-
+	
 	public String getNombre() {
 		return nombre;
 	}
-
+	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
 	
 }
