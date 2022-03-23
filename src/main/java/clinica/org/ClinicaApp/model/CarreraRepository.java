@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import clinica.org.ClinicaApp.entity.Carrera;
 
 @Repository 
-public interface CarreraRepository extends JpaRepository<Carrera, Long>{
+public interface CarreraRepository extends JpaRepository<Carrera, String>{
 
 }

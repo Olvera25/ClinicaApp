@@ -1,7 +1,7 @@
 package clinica.org.ClinicaApp.service;
 
-import java.util.Optional;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,22 +15,29 @@ public class CarreraService {
 	CarreraRepository repo;
 	
 	public Carrera crearCarrera(Carrera carrera) {
-		return repo.save(carrera);
-		
+		if (carrera.getCodigo()==null){
+			return repo.save(carrera);
+		}
+		return null;
+	}
+
+	public List<Carrera> listarCarrera(){
+		return repo.findAll();
 	}
 	
 	public void eliminarCarrera(Carrera carrera) {
 		repo.delete(carrera);
-		
+	}
+
+	public Carrera editarCarrera(Carrera carrera){
+		if (carrera.getCodigo() != null && repo.existsById(carrera.getCodigo())){
+			return repo.save(carrera);
+		}
+		return null;
 	}
 	
-	public List<Carrera> listarCarrera() {
-		return repo.findAll();
-		
-	}
-	
-	public Optional<Carrera> mostrarCarrera(Long id) {
-		return repo.findById(id);
+	public Optional<Carrera> mostrarCarrera(String codigo) {
+		return repo.findById(codigo);
 		
 	}
 }

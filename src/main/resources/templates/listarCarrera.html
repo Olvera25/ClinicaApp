@@ -23,12 +23,11 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr data-th-each="usuario : ${listarUsuario}">
-					<td data-th-text="${usuario.id_carrera}"></td>
-					<td data-th-text="${usuario.nombre}"></td>
-					<td data-th-text="${usuario.contrasenia}"></td>
+				<tr data-th-each="usuario : ${listar}">
+					<td data-th-text="${carrera.codigoCarrera}"></td>
+					<td data-th-text="${carrera.nombreCarrera}"></td>
 					<td>
-						<a th:href="@{'/pages/editarUsuario/{id}'(id=${usuario.id_carrera})}">
+						<a th:href="@{'/pages/editarCarrera/{id}'(id=${carrera.id_carrera})}">
 							<span class="fa-stack">
 								<i class="fa fa-edit"></i>
 							</span>
@@ -36,7 +35,7 @@
 					</td>
 					
 					<td>
-						<a th:href="@{'/pages/eliminarUsuario/{id}'(id=${usuario.id})}">
+						<a th:href="@{'/pages/eliminarCarrera/{id}'(id=${carrera.id})}">
 							<span class="fa-stack">
 								<i class="fa fa-trash"></i>
 							</span>
@@ -47,6 +46,6 @@
 		</table>
 	</div>
 	<br/>
-	<a class="btn btn-info" href="/pages/agregarUsuario"><i class="fa fa-home"></i>&nbspNuevo Usuario</a>
+	<a class="btn btn-info" href="/pages/crearCarrera"><i class="fa fa-home"></i>&nbspNuevo Usuario</a>
 </body>
 </html>

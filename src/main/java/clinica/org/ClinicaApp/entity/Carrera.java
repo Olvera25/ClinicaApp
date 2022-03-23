@@ -6,29 +6,30 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table (name="carrera")
 public class Carrera {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	Long codigo;
-	
+	String codigo;
 	String nombre;
 	
 	public Carrera() {
 		
 	}
 	
-	public Carrera(Long codigo, String nombre) {
+	public Carrera(String codigo, String nombre) {
 		this.codigo=codigo;
 		this.nombre=nombre;
 	}
 
-	public Long getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(Long codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
